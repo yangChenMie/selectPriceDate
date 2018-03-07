@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=contain">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../scss/common.css">
+    <link rel="stylesheet" href="calendar.css">
+    <script src="../zepto/zepto.min.js"></script>
+    <script src="datePrice.js"></script>
+</head>
+<body>
+<div class="calendar pricecalendar ifHide">
+</div>
+<div class="clickPriceDate">价格日历</div>
+</body>
+</html>
+<script>
+    $(function () {
+        datePrice({
+            $dom:".pricecalendar",
+            monthNum:3,
+            callback:function (y,m,d) {
+                console.log(y,m,d);
+            },
+            allData:[{
+                "2018-03-18":"￥999"
+            }]
+        });
+        $(".clickPriceDate").on("click",function () {
+            $(".pricecalendar").show();
+        });
+
+    });
+</script>

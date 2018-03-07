@@ -1,0 +1,134 @@
+/* CSS Document */
+*{
+	margin:0;
+	padding:0;
+	}
+.calendar,.startcalendar,.endcalendar{
+	display: none;
+	position: fixed;
+	width: 100%;
+	z-index: 999999999;
+	top: 0;
+	overflow: auto;
+	height: 100%;
+	background: #fff;
+	font-size:0.14rem;
+	letter-spacing: 0;
+
+}
+.firstSelect{
+	width:100%;
+	background:#fff;
+	position:fixed;
+	top:0;
+	left:0;
+	height:100%;
+	overflow:scroll;
+	display:none;
+}
+body td{
+	text-align:center;
+	height:0.4rem;
+	}
+.dateZone{
+	width:100%;
+	margin:auto;
+	background:#f4f3f8;
+	border-bottom:1px solid #ddd;
+	color:#666;
+	}
+.dateZone td{
+	background:#f4f3f8;
+}
+.tbody td{
+	background:#fff;
+}
+.dateZone td{
+	width:14.2%;
+	}
+.dateZone .colo{
+	color:#09F;
+	}
+.dateTable{
+	width:99.4%;
+	margin:auto;
+	border-bottom:1px solid #ddd;
+	}
+.tbody .ny1{
+	width:100%;
+	text-align:center;
+	padding:0.05rem 0;
+	font-weight: 600;
+	}
+.dateTable td{
+	width:14.2%;
+	}
+.dateTable .rz{
+	font-size:0.12rem;
+	}
+.datTip{
+	background:rgba(0,153,255,0.8);
+	width:40%;
+	position:fixed;
+	bottom:0.02rem;
+	left:30%;
+	}
+.datTip p{
+	width:100%;
+	margin:auto;
+	text-align:center;
+	color:#fff;
+	padding:0.03rem 0;
+	font-size:0.14rem;
+	}
+.rz{
+	position:relative;
+	/* display: none; */
+	}
+.hover{
+	font-size:0.14rem;
+	display:inline-block;
+	width:60%;
+	background:#FF3;
+	/* display: none; */
+	color:red;
+	text-align:center;
+	border-radius:0.05rem;
+	}
+td{
+	border-radius:0.02rem;
+	}
+section{
+	margin:0.1rem;
+	padding:0.05rem;
+	}
+@media only screen and (min-width:400px){
+	body td{
+	text-align:center;
+	height:0.48rem;
+
+	}
+}
+@media only screen and (max-width:320px) {
+	body {
+		font-size: 0.14rem;
+	}
+
+	.dateTable .rz {
+		font-size: 0.12rem;
+	}
+
+	.datTip p {
+		font-size: 0.12rem;
+	}
+
+	.hover {
+		font-size: 0.12rem;
+	}
+
+	body td {
+		text-align: center;
+		height: 0.35rem;
+
+	}
+}

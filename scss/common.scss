@@ -1,0 +1,583 @@
+@charset "UTF-8";
+@import "mixin";
+
+/*reset样式重置*/
+body,div,ul,li,dl,dt,dd,p,ol,h1,h2,h3,h4,h5,h6,form,img,table,fieldset,legend{margin:0; padding:0;box-sizing: border-box;}
+ul,li,ol{list-style:none;}
+img,fieldset{border:0; }
+img{display:block;border:none;}
+a{text-decoration:none; color:#333;}
+h1,h2,h3,h4,h5,h6{font-weight:100;}
+input,a{outline:none;}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+html{
+  font-size:26.666vw;
+}
+body{
+  font-size:0.1rem;
+  line-height: 1.3;
+  color:#2f2f2f;
+  font-family: "Hiragino Sans GB","Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei";
+}
+/*字体大小*/
+@for $i from 1 through 8 {
+  .fontSize-#{$i} { font-size: 0.02rem * ($i+3); }
+}
+//按钮基础样式
+.btn{
+  height: .34rem;
+  background: transparent;
+  border: 1px solid #999;
+  outline: none;
+  line-height: .34rem;
+  color: #666;
+  border-radius: .04rem;
+  padding-left: .075rem;
+  padding-right: .075rem;
+  font-size: .16rem;
+}
+/*基础按钮*/
+.blueBtn,.blueBtn:hover,.blueBtn:active,.blueBtn:focus{
+  background: $mainColor;
+  color:$whiteColor;
+  border:none;
+}
+/*整个背景*/
+.bgGray{
+  background: $mianBgColor;
+}
+/*flex布局*/
+.disFlex{
+  display: flex;
+}
+.disInlneBlk{
+  display: inline-block;
+}
+.flexCl{
+  flex-direction:column;
+}
+.flexBtwn{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flexVis{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*flex大小*/
+@for $i from 1 through 8 {
+  .flex#{$i} { flex: $i; }
+}
+/*浮动*/
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+/*清除浮动*/
+.clearFix{
+  @include clearfix();
+}
+/*字体对齐方式*/
+.text-center{
+  text-align: center;
+}
+.text-left{
+  text-align: left;
+}
+.text-right{
+  text-align:right;
+}
+/*字体颜色*/
+.fontLight{
+  color:#9a9a9a;
+}
+/*橙色价格字体*/
+.orgStateFont{
+  color:#ff6e01;
+}
+/*蓝色字体*/
+.blueStateFont{
+  color:$mainColor;
+}
+.redStateFont{
+  color:#ff5555;
+}
+.greenStateFont{
+  color:#34a00e;
+}
+.darkGrayFont{
+  color:#8b8b8b;
+}
+/*红色边框*/
+.redBor{
+  border:1px solid #fd0100;
+}
+/*橙色边框*/
+.orgBor{
+  border:1px solid #ff6e01;
+}
+/*蓝色边框*/
+.blueBor{
+  border:1px solid $mainColor;
+}
+/*绿色边框*/
+.greenBor{
+  border:1px solid #34a00e;
+}
+/*往返图标边框*/
+.goIcon{
+  height:0.12rem;
+  padding:0.02rem;
+  line-height: 1;
+  border-radius: 0.02rem;
+  margin-right:0.05rem;
+}
+/*分割符*/
+.iconvgiLine:before{
+  content: "";
+  float: left;
+  height: 0.12rem;
+  width: 1px;
+  margin-top: 0.16rem;
+  border-left: 1px solid #cccccc;
+}
+/*小图标*/
+.icon{
+  display: inline-block;
+  vertical-align: middle;
+  width:0.12rem;
+  height:0.12rem;
+}
+/*mr*/
+@for $i from 1 through 10{
+      .mr#{$i}{
+          margin-right: 1 * 0.1rem;
+      }
+}
+.mr05{
+    margin-right: .05rem;
+}
+/*往返标签*/
+.label-icon{
+    //display: inline-block;
+//  width: .16rem;
+    height: .16rem;
+    padding: .02rem;
+    line-height: 1;
+    font-size: .12rem;
+    text-align: center;
+    border-radius: 0.02rem;
+    color: #fff;
+}
+.label-icon-1{
+    background: rgb(66,186,247);
+}
+.label-icon-2{
+    background: rgb(248,168,79);
+}
+/*隐藏元素*/
+.ifHide{
+  display: none;
+}
+/*违，红底*/
+.outBtn{
+  display: inline-block;
+  background: #ff1111;
+  color:$whiteColor;
+  font-size:0.12rem;
+  line-height: 1;
+  padding: 0.03rem 0.03rem;
+  border-radius: 0.03rem;
+}
+.fillGoTag{
+  background: $mainColor;
+  color: $whiteColor;
+}
+.fillBackTag{
+  background: #ff9b00;
+  color:$whiteColor;
+}
+/*官网直销标签*/
+.selfSell{
+  display: inline-block;
+  border:1px solid #ffa800;
+  color:#ffa800;
+  font-size:0.08rem;
+  line-height: 1;
+  vertical-align: middle;
+  padding: 0.02rem;
+  border-radius: 0.02rem;
+}
+/*选择框样式重写灰底圆圈选中打钩*/
+.check{
+  input[type=radio],input[type=checkbox] {
+    display: inline-block;
+    vertical-align: middle;
+    width: 0.2rem;
+    height: 0.2rem;
+    margin-left: 0.05rem;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 0;
+    outline: 0 !important;
+    line-height: 20px;
+    color: #d8d8d8;
+  }
+  input[type=radio]:after,input[type=checkbox]:after  {
+    content: "";
+    display:block;
+    width: 0.2rem;
+    height: 0.2rem;
+    text-align: center;
+    line-height: 0.14rem;
+    font-size: 0.16rem;
+    color: #fff;
+    border: none;
+    background-color: $lightGray;
+    border-radius: 50%;
+    box-sizing:border-box;
+  }
+  input[type=checkbox]:checked:after ,input[type=radio]:checked:after  {
+    content: "L";
+    padding-top:0.03rem;
+    padding-left:0.01rem;
+    transform:matrix(-0.766044,-0.642788,-0.642788,0.766044,0,0);
+    -webkit-transform:matrix(-0.766044,-0.642788,-0.642788,0.766044,0,0);
+    border-color: $mainColor;
+    background-color:$mainColor;
+  }
+}
+/*选择框样式重写灰底二选一radius切换*/
+.twoCheckOne{
+  input[type="checkbox"]{
+    background-color: #fafbfa;
+    padding: 0.05rem;
+    border-radius: 0.25rem;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    -webkit-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
+    width: 0.5rem;
+    height: 0.25rem;
+  }
+  input[type="checkbox"]:before{
+    content: ' ';
+    position: absolute;
+    background: white;
+    top: 0.02rem;
+    left: 0.02rem;
+    z-index: 999999;
+    width: 0.21rem;
+    -webkit-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
+    height: 0.21rem;
+    border-radius: 50%;
+    box-shadow: 0 3px 1px rgba(0,0,0,0.05), 0 0px 1px rgba(0,0,0,0.3);
+  }
+  input[type="checkbox"]:after{
+    content: ' ';
+    position: absolute;
+    top: 0;
+    background-color: #999999;
+    -webkit-transition: box-shadow 0.1s ease-in;
+    transition: box-shadow 0.1s ease-in;
+    left: 0;
+    width: 0.5rem;
+    height: 0.25rem;
+    border-radius: 0.12rem;
+    box-shadow: inset 0 0 0 0 #eee, 0 0 1px rgba(0,0,0,0.4);
+  }
+  input[type="checkbox"]:checked:before{
+    content: ' ';
+    position: absolute;
+    left: 0.26rem;
+    border-radius: 50%;
+  }
+  input[type="checkbox"]:checked:after{
+    background:$mainColor;
+    box-shadow: 0 0 1px $mainColor;
+  }
+}
+/*选择框样式重写灰底方块选中打钩*/
+.diamondCheck{
+  input[type=checkbox] {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.05rem;
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0 !important;
+    color: #d8d8d8;
+    position: relative;
+    width: .21rem;
+    height: .21rem;
+    border-radius: .04rem;
+    overflow: hidden;
+  }
+  input[type=checkbox]:before  {
+    content: "";
+    display:block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: $lightGray;
+  }
+  input[type=checkbox]:checked:before  {
+    background: $blueColor;
+  }
+  input[type=checkbox]:checked:after  {
+    content: "";
+    display:block;
+    position: absolute;
+    top: .03rem;
+    left: .015rem;
+    width: .15rem;
+    height: .07rem;
+    border: .02rem solid #fff;
+    border-top: none;
+    border-right: none;
+    border-radius: 2px;
+    transform: rotate(-45deg);
+  }
+}
+//没有背景的钩钩
+.noBgOk input[type=checkbox]:before{
+  background: transparent;
+}
+.noBgOk input[type=checkbox]:checked:before{
+  background: transparent;
+}
+.noBgOk input[type=checkbox]:checked:after {
+  border-color: $blueColor;
+}
+//黄色按钮
+.btnYellow{
+  background: #FF7200;
+  color: #fff;
+  border: 1px solid #FF7200;
+}
+.dateInput{
+  width:0.5rem;
+  border:none;
+  height:0.3rem;
+  font-size: 0.16rem;
+}
+
+/*弹框样式*/
+//默认弹出层样式
+.shenshou-layer-box{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  .shenshou-layerBg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.5);
+  }
+}
+.shenshou-layerCon{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  font-size: .14rem;
+  z-index: 9999;
+}
+.layerBg{
+  background: url("../images/layer/bg-1@2x.png") no-repeat 0 0;
+  background-size: 100%;
+  .closeLayerBtn{
+    float: right;
+    width:0.1rem;
+    height:0.1rem;
+    margin-right:0.05rem;
+    margin-top:0.05rem;
+    img{
+      width:0.1rem;
+      height:0.1rem;
+    }
+  }
+}
+.layer .fillGoTag,.layer .fillBackTag{
+  border-radius: 50%;
+  margin-right: 0.1rem;
+  padding: 0.02rem 0.05rem;
+}
+/*违规政策弹框*/
+.layerOutLine{
+  width:3.25rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: auto;
+  font-size: .14rem;
+  margin:0 auto;
+  margin-top:50%;
+  border-radius: 0.05rem;
+  background: $whiteColor;
+  .layerBgTop{
+    height:0.4rem;
+  }
+  .outLineLayerMain{
+    padding:0.32rem 0;
+    .outLineBack{
+      padding-top:0.1rem;
+    }
+    p{
+      //margin:0 auto;
+      color:#969696;
+      margin-bottom: 0.1rem;
+    }
+    .title{
+      color:#2c2c2c;
+    }
+  }
+}
+/*退改签弹框*/
+.layerChangeLine{
+  width:3.25rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: auto;
+  font-size: .14rem;
+  margin:0 auto;
+  margin-top:50%;
+  border-radius: 0.05rem;
+  background: $whiteColor;
+  .layerBgTop{
+    height:1.35rem;
+    .titleTab{
+      height:0.4rem;
+      line-height: 0.45rem;
+      padding: 0 1rem;
+      p{
+        margin:0 0.1rem;
+      }
+      .active{
+         border-bottom: 2px solid $mainColor;
+         color: $mainColor;
+       }
+    }
+    .list{
+      padding: 0.15rem;
+      p{
+        line-height: 0.2rem;
+        .icon{
+          width:0.14rem;
+          height:0.14rem;
+          margin-right: 0.05rem;
+        };
+      }
+    }
+  }
+  .changeLineLayerMain{
+    padding:0.15rem;
+    .mar{
+      margin-bottom: 0.1rem;
+    }
+    .changTable{
+      border:1px solid $lightGray;
+      border-bottom: none;
+      .oneTr{
+        border-bottom: 1px solid $lightGray;
+        .oneTitle{
+          padding:0.1rem 0rem;
+          border-right: 1px solid $lightGray;
+          width:0.8rem;
+          text-align: center;
+          display: flex;
+          justify-content:center;
+          align-items:center;
+        }
+        .oneCon{
+          padding:0.1rem 0rem;
+          p{
+            padding-left:0.1rem;
+            line-height: 0.2rem;
+          }
+        }
+      }
+    }
+    .backHide{
+      display: none;
+    }
+  }
+}
+
+/*选择违规政策*/
+.selecOut{
+  position: relative;
+  img{
+    position: absolute;
+    top:0.15rem;
+    right:0.1rem;
+  }
+}
+.secOutTitle{
+  line-height: 0.4rem;
+  padding-left:0.15rem;
+}
+.layerOutLine{
+  .selecOutMain {
+    padding: 0 0;
+    p{
+      margin-bottom: 0;
+      border-bottom: 1px solid #e9e9e9;
+      font-size:0.14rem;
+      height:0.4rem;
+      line-height: 0.4rem;
+      padding-left: 0.15rem;
+      color: #333333;
+    }
+    p:nth-last-of-type(1){
+      border-bottom:none;
+    }
+  }
+}
+.layerp .active{
+  color:$mainColor!important;
+  position: relative;
+}
+.layerp .active:after{
+  position: absolute;
+  right:0.2rem;
+  content: 'L';
+  font-size: 0.16rem;
+  transform:matrix(-0.766044,-0.642788,-0.642788,0.766044,0,0);
+  -webkit-transform:matrix(-0.766044,-0.642788,-0.642788,0.766044,0,0);
+}
+.bgWhite{
+  background: #fff;
+}
+
+/*loading*/
+.loadingWrop{
+  background: url('../images/loading/loadinglogo@2x (2).png') no-repeat;
+  background-size: cover;
+  width: 0.68rem;
+  height: 0.68rem;
+  color: #fff;
+  text-align: center;
+  padding-top: 0.15rem;
+  opacity: 0.8;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  margin-left: -0.34rem;
+}

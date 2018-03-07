@@ -1,0 +1,84 @@
+@charset "UTF-8";
+$mainColor:#2577e3;
+$whiteColor:#ffffff;
+$bgdGray:#2c2c22; //深灰色
+$lightGray:#e2e2e2;
+$mianBgColor:#eeeeee;
+$fontCe:#cecece;
+$fontB2:#b2b2b2;
+$blueColor:rgb(26,119,225);
+
+/*以375-750 rem布局*/
+
+/*box size*/
+@mixin size($wid,$hei){
+  width:$wid;
+  height:$hei;
+}
+/*显示show省略号...*/
+@mixin ellp(){
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* minheight */
+@mixin minHeight($min-height) {
+  min-height: $min-height;
+  height: auto !important;
+  height: $min-height;
+}
+/* arrow(direction,size,color);*/
+@mixin arrow($direction,$size,$color) {
+  width: 0;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+  overflow: hidden;
+  border-width: $size;
+  cursor: pointer;
+  @if $direction == top {
+    border-style: dashed dashed solid dashed;
+    border-color: transparent transparent $color transparent;
+    border-top: none;
+  }
+  @else if $direction == bottom {
+    border-style: solid dashed dashed dashed;
+    border-color: $color transparent transparent transparent;
+    border-bottom: none;
+  }
+  @else if $direction == right {
+    border-style: dashed dashed dashed solid;
+    border-color: transparent transparent transparent $color;
+    border-right: none;
+  }
+  @else if $direction == left {
+    border-style: dashed solid dashed dashed;
+    border-color: transparent $color transparent transparent;
+    border-left: none;
+  }
+}
+/*边框及圆弧度 border and border-radius*/
+@mixin borderAndRadius($wid,$col,$cls:solid,$rad:0){
+  border:$wid $cls $col;
+  border-radius: $rad;
+}
+/*块居中*/
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* clearfix */
+@mixin clearfix() {
+  &:after {
+    clear: both;
+    content: '.';
+    display: block;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+  }
+  *height: 1%;
+}
