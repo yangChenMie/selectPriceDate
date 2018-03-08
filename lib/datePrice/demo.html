@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=contain">
     <title>Title</title>
     <link rel="stylesheet" href="../../scss/common.css">
-    <link rel="stylesheet" href="calendar.css">
+    <link rel="stylesheet" href="../date/calendar.css">
     <script src="../zepto/zepto.min.js"></script>
     <script src="datePrice.js"></script>
 </head>
@@ -19,13 +19,14 @@
     $(function () {
         datePrice({
             $dom:".pricecalendar",
-            monthNum:3,
+            monthNum:13,
             callback:function (y,m,d) {
                 console.log(y,m,d);
             },
-            allData:[{
-                "2018-03-18":"￥999"
-            }]
+            allData: {
+                "2018-03-18": "￥999",
+                "2018-03-20": "￥999"
+            }
         });
         $(".clickPriceDate").on("click",function () {
             $(".pricecalendar").show();
